@@ -30,7 +30,7 @@
         "surge": "^0.21.3",
         "uglify-js": "^3.5.3",
         "url-parse": "^1.4.7",
-        "ws": "^7.0.0"
+        "ws": "^7.4.6"
     },
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
