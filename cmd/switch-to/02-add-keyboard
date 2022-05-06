@@ -1,0 +1,4 @@
+#!/bin/bash
+set -e
+
+cmd/helpers/switch-to "02-add-keyboard"

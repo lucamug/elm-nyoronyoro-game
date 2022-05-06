@@ -1,0 +1,5 @@
+#!/bin/bash
+set -e
+
+printf "\n\e[0;32m🍣   Compiling...\e[0m\n\n"
+node_modules/.bin/elm make src/Main.elm --output="docs/js-compiled/main.js"

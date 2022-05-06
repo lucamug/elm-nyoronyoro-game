@@ -1,0 +1,15 @@
+#!/bin/bash
+# This script assume you have gource, install it with...
+#
+# brew install gource
+#
+gource -f --camera-mode track --start-position 0.8 --key --background 000000 --title "elm-canvas-test" --seconds-per-day 1 --auto-skip-seconds 1 -1280x720
+#
+# To generate a video, install ffmpeg with...
+#
+# brew install ffmpeg
+#
+# ..and run
+#
+# mkdir temp
+# gource -f --camera-mode track --start-position 0.8 --key --background 000000 --title "elm-canvas-test" --seconds-per-day 1 --auto-skip-seconds 1 -1280x720 -o - | ffmpeg -y -r 60 -f image2pipe -vcodec ppm -i - -vcodec libx264 -preset ultrafast -pix_fmt yuv420p -crf 1 -threads 0 -bf 0 temp/gource.mp4

@@ -1,0 +1,47 @@
+#!/bin/bash
+
+type=$1
+fileName=build/issues/$type.txt
+
+printf "\n\e[0;32m🍣   Checking $1...\e[0m\n\n"
+
+# elm-xref
+
+mkdir build
+mkdir build/issues
+printf "\n\n# UNUSED ITEMS\n\n" > $fileName
+node_modules/.bin/elm-xref >> $fileName
+
+# elm-analyse
+
+printf "\n\n# OTHER ISSUES\n\n" >> $fileName
+node_modules/.bin/elm-analyse --elm-format-path=node_modules/.bin/elm-format >> $fileName
+# Removing issues related to libraries
+node_modules/.bin/replace "^.*/node_modules/.*\n" "" $fileName --silent
+# Removing system info
+node_modules/.bin/replace "^INFO:.*\n" "" $fileName --silent
+# Removing part of the path that contains user name
+node_modules/.bin/replace ".*/src/" "src/" $fileName --silent
+# Removing not tracked issues
+node_modules/.bin/replace ".*Importing all from module .Element.*\n" "" $fileName --silent
+node_modules/.bin/replace ".*.Nothing. mapped to .Nothing. in case expression.*\n" "" $fileName --silent
+node_modules/.bin/replace ".*Record has only one field. Use the field's type or introduce a Type.*\n" "" $fileName --silent
+node_modules/.bin/replace ".*.TODO. should not be used in comments.*\n" "" $fileName --silent
+node_modules/.bin/replace ".*Use .::. instead of .\+\+..*\n" "" $fileName --silent
+node_modules/.bin/replace ".*Unnecessary parens.*\n" "" $fileName --silent
+node_modules/.bin/replace ".*Joining two literal lists with .\+\+., but instead you can just join the lists.*\n" "" $fileName --silent
+# Remove files that have not issues
+# for some reaons "-" is not accepted as character in the second string
+node_modules/.bin/replace "^. src.*\n. src" "* src" $fileName --silent
+node_modules/.bin/replace "^. src.*\n. src" "* src" $fileName --silent
+node_modules/.bin/replace "^. src.*\n. src" "* src" $fileName --silent
+node_modules/.bin/replace "^. src.*\n. src" "* src" $fileName --silent
+node_modules/.bin/replace "^. src.*\n. src" "* src" $fileName --silent
+node_modules/.bin/replace "^. src.*\n\n" "" $fileName --silent
+
+# cloc
+
+printf "\n\n# LINES OF CODE\n\n" >> $fileName
+node_modules/.bin/cloc src --follow-links >> $fileName
+# End
+printf "\n\n# END\n\n" >> $fileName

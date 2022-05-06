@@ -1,0 +1,12 @@
+#!/bin/bash
+set -e
+
+type=$1
+
+printf "\n\e[0;32m🍣   Compiling, uglifying and minifying $type...\e[0m\n\n"
+
+cmd/helpers/switch-to $type
+node_modules/.bin/elm make src/Main.elm --output=build/TEMP/temp.js --optimize
+node_modules/.bin/uglifyjs build/TEMP/temp.js docs/js/elm-canvas.es2015.js docs/js/starter.js --compress 'pure_funcs="F2,F3,F4,F5,F6,F7,F8,F9,A2,A3,A4,A5,A6,A7,A8,A9",pure_getters,keep_fargs=false,unsafe_comps,unsafe' | node_modules/.bin/uglifyjs --mangle --output=build/js/$type.js
+cmd/helpers/dev-to-prod $type
+cmd/helpers/check $type

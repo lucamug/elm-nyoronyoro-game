@@ -1,0 +1,3 @@
+#!/bin/bash
+printf "\n\e[0;32m🍣   Starting docs at http://localhost:4040/...\e[0m\n\n"
+node_modules/.bin/elm-doc

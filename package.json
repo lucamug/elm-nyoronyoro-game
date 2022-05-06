@@ -1,0 +1,45 @@
+{
+    "name": "elm-nyoronyoro-game",
+    "version": "1.0.0",
+    "description": "",
+    "devDependencies": {
+        "chalk": "^1.1.1",
+        "chokidar": "3.0.0",
+        "cli-color": "^1.4.0",
+        "cloc": "^2.5.0",
+        "commander": "2.17.1",
+        "cross-spawn": "5.0.1",
+        "elm": "^0.19.0-no-deps",
+        "elm-analyse": "^0.16.2",
+        "elm-doc": "0.0.1",
+        "elm-format": "^0.8.1",
+        "elm-go": "^5.0.14",
+        "elm-hot": "^1.0.1",
+        "elm-live": "^3.4.1",
+        "elm-xref": "^4.0.0",
+        "finalhandler": "^1.1.2",
+        "html-minifier": "^3.5.21",
+        "http-server": "^0.11.1",
+        "internal-ip": "^4.3.0",
+        "ip": "^1.1.5",
+        "opn": "^6.0.0",
+        "pem": "1.13.2",
+        "qrcode-terminal": "^0.12.0",
+        "replace": "^1.1.0",
+        "serve-static": "^1.14.1",
+        "surge": "^0.21.3",
+        "uglify-js": "^3.5.3",
+        "url-parse": "^1.4.7",
+        "ws": "^7.0.0"
+    },
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "cmd/start"
+    },
+    "author": "Luca Mugnaini",
+    "license": "BSD-3-Clause",
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/lucamug/elm-nyoronyoro-game.git"
+    }
+}

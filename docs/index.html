@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.5, shrink-to-fit=yes">
+    <link class="dev-only" href="fonts/fonts.css" rel="stylesheet">
+    <!-- prod-only <link href="https://fonts.googleapis.com/css?family=Major+Mono+Display" rel="stylesheet"> -->
+    <title>NyoroNyoro{title}</title>
+    <style>
+        body {
+            margin: 0px;
+            font-family: "Major Mono Display", sans-serif;
+        }
+
+        pre {
+            font-family: "Major Mono Display", sans-serif;
+            margin: 100px auto;
+        }
+
+        table {
+            margin: 50px auto;
+        }
+
+        #header {
+            height: 100vh;
+            background-color: #492c57;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #footer {
+            text-align: center;
+            margin: 100px;
+        }
+
+        #container {
+            border: 8px solid #925cad;
+        }
+
+        #container,
+        #game {
+            background-color: #e6b3ff;
+            width: 1000px;
+            height: 600px;
+            /* width: 100vw;
+            height: 100vh; */
+        }
+
+        .ra {
+            text-align: right;
+        }
+
+        .la {
+            text-align: left;
+        }
+
+        th,
+        td {
+            padding: 8px 26px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="header">
+        <div id="container">
+            <div id="game"></div>
+            <div style="color: #e6b3ff; text-align: center; margin-top: 20px;">▼</div>
+        </div>
+    </div>
+    <div id="footer">
+        <h1 style="font-size: 80px; font-weight: normal;">ニョロニョロ*</h1>
+        <h1 style="margin-top: -60px">a game in elm</h1>
+        <p>(*) “nyoronyoro”, means wriggling in japanese</p>
+
+        <table>
+            <tr><th class="la">parts                                                     </th><th class="ra">loc  </th><th class="ra">    </th></tr>
+            <tr><td class="la"><a href="01-game-loop.html">01-game-loop</a>              </td><td class="ra">  115</td><td class="ra">+115</td></tr>
+            <tr><td class="la"><a href="02-add-keyboard.html">02-add-keyboard</a>        </td><td class="ra">  141</td><td class="ra"> +26</td></tr>
+            <tr><td class="la"><a href="03-add-pause.html">03-add-pause</a>              </td><td class="ra">  242</td><td class="ra">+101</td></tr>
+            <tr><td class="la"><a href="04-add-player.html">04-add-player</a>            </td><td class="ra">  536</td><td class="ra">+294</td></tr>
+            <tr><td class="la"><a href="05-add-score">05-add-score</a>                   </td><td class="ra">  771</td><td class="ra">+235</td></tr>
+            <tr><td class="la"><a href="06-add-random">06-add-random</a>                 </td><td class="ra">  862</td><td class="ra"> +91</td></tr>
+            <tr><td class="la"><a href="07-add-shots">07-add-shots</a>                   </td><td class="ra">1,013</td><td class="ra">+151</td></tr>
+            <tr><td class="la"><a href="08-detect-collisions">08-detect-collisions</a>   </td><td class="ra">1,180</td><td class="ra">+167</td></tr>
+            <tr><td class="la"><a href="09-add-explosions">09-add-explosions</a>         </td><td class="ra">1,301</td><td class="ra">+121</td></tr>
+            <tr><td class="la"><a href="10-add-slomo">10-add-slomo</a>                   </td><td class="ra">1,500</td><td class="ra">+123</td></tr>
+            <tr><td class="la"><a href="11-add-sound">11-add-sound</a>                   </td><td class="ra">1,377</td><td class="ra"> +76</td></tr>
+            <tr><td class="la"><a href="12-add-menu">12-add-menu</a>                     </td><td class="ra">1,800</td><td class="ra">+300</td></tr>
+        </table>
+        <pre>
+created by ......... <a href="https://twitter.com/luca_mug">lucamug@gmail.com</a>
+
+music ............... <a href="https://www.bensound.com/">www.bensound.com</a>
+
+effects ............. <a href="https://www.soundjay.com/">www.soundjay.com</a>
+
+built with ....................... <a href="https://elm-lang.org/">elm</a>
+
+game website ............<a href="https://nyny.surge.sh/">nyny.surge.sh</a>
+
+code ............. <a href="https://github.com/lucamug/elm-nyoronyoro-game">elm-nyoronyoro-game</a>
+</pre>
+    </div>
+    <script class="dev-only" src="js/howler.core.min.js"></script>
+    <script class="dev-only" src="js-compiled/main.js"></script>
+    <script class="dev-only" src="js/elm-canvas.es2015.js"></script>
+    <script class="dev-only" src="js/starter.js"></script>
+    <!-- prod-only <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.1.2/howler.core.min.js"></script> -->
+    <!-- prod-only <script src="js/{type}.js"></script> -->
+</body>
+
+</html>

@@ -1,0 +1,13 @@
+# Distribution
+/build/
+/temp/
+
+# Compiled files
+js-compiled
+
+# Dependency directories
+elm-stuff
+node_modules
+
+# Desktop Services Store on macOS
+.DS_Store

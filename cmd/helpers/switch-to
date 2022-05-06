@@ -1,0 +1,9 @@
+#!/bin/bash
+set -e
+
+type=$1
+
+printf "\n\e[0;32m🍣   Switching to $type...\e[0m\n\n"
+rm src | true
+ln -s versions/$type src
+cmd/extras/reset | true

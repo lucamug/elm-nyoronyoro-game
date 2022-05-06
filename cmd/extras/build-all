@@ -1,0 +1,42 @@
+#!/bin/bash
+set -e
+
+printf "\n\e[0;32m🍣   Removing build folder...\e[0m\n\n"
+
+rm -rf build
+mkdir build
+mkdir build/issues
+mkdir build/TEMP
+
+printf "\n\e[0;32m🍣   Copying folders...\e[0m\n\n"
+
+cp -r docs/sounds  build/
+cp -r docs/js      build/
+cp -r docs/images  build/
+
+printf "\n\e[0;32m🍣   Copying files...\e[0m\n\n"
+
+cp docs/favicon.ico             build
+
+# Compiling, uglifying, etc.
+
+cmd/helpers/compile-uglify-minify "01-game-loop"
+cmd/helpers/compile-uglify-minify "02-add-keyboard"
+cmd/helpers/compile-uglify-minify "03-add-pause"
+cmd/helpers/compile-uglify-minify "04-add-player"
+cmd/helpers/compile-uglify-minify "05-add-score"
+cmd/helpers/compile-uglify-minify "06-add-random"
+cmd/helpers/compile-uglify-minify "07-add-shots"
+cmd/helpers/compile-uglify-minify "08-detect-collisions"
+cmd/helpers/compile-uglify-minify "09-add-explosions"
+cmd/helpers/compile-uglify-minify "10-add-slomo"
+cmd/helpers/compile-uglify-minify "11-add-sound"
+cmd/helpers/compile-uglify-minify "12-add-menu"
+
+# Creating index.html
+
+cp build/12-add-menu.html build/index.html
+
+# Cleaning up
+
+rm -rf build/TEMP

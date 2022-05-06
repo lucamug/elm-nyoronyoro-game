@@ -1,0 +1,17 @@
+#!/bin/bash
+set -e
+
+type=$1
+
+# Copy the html file, then remove the scripts for dev and
+# add the scripts for productions
+
+cp docs/index.html build/temp.html
+node_modules/.bin/replace '{title}' " - $type" build/temp.html -m -i --silent
+node_modules/.bin/replace '{type}' $type build/temp.html -m -i --silent
+node_modules/.bin/replace '(<script class="dev-only".*</script>)' '<!-- $1 -->' build/temp.html -m -i --silent
+node_modules/.bin/replace '(<link class="dev-only".*>)' '<!-- $1 -->' build/temp.html -m -i --silent
+node_modules/.bin/replace '<!-- prod-only (.*) -->' '$1' build/temp.html -m -i --silent
+# node_modules/.bin/html-minifier -o build/$1 build/temp.html --minify-css --minify-js --collapse-whitespace --remove-comments
+node_modules/.bin/html-minifier -o build/$type.html build/temp.html --remove-comments --collapse-whitespace --minify-css --preserve-line-breaks
+rm build/temp.html

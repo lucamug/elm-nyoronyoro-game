@@ -1,0 +1,6 @@
+#!/bin/bash
+set -e
+
+printf "\n\nTo kill a port run the command\n\n"
+printf "lsof -i :8000\n"
+printf "kill -9 PID\n\n\n"
